@@ -1,3 +1,3 @@
-## Create React App Visualization
+Drone Data Display
 
-Read more about this assessment here
+Displays the temperature and position at the area of the drone. 
