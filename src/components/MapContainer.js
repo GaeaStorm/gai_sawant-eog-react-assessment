@@ -1,33 +1,30 @@
-import React, { Component } from 'react';
-import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+import React, {Component} from 'react';
 import Drone from "./Drone";
-// import Marker from "google-maps-react";
+import {GoogleMap, withGoogleMap, withScriptjs} from "react-google-maps";
+import Temperature from "./Temperature";
 
-const mapStyles = {
-    width: '100%',
-    height: '100%'
-};
+const MapReturn = withScriptjs(withGoogleMap((props) =>
+    <GoogleMap
+        defaultZoom={6}
+        defaultCenter={{lat: 29, lng: -95}}
+    >
+        <Drone/>
+    </GoogleMap>
+));
 
 export class MapContainer extends Component {
+
     render() {
-        // console.log(<Drone/>);
+
         return (
-            <Map
-                google={this.props.google}
-                zoom={5}
-                style={mapStyles}
-                initialCenter={{
-                    lat: 29.2884,
-                    lng: -94.8233
-                }}
-            >
-                {/*<Marker name={'Drone'} position={{lat: 30, lng:-95}}/>*/}
-                <Drone/>
-            </Map>
-        );
+            <MapReturn
+                googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiqnqPDGq0oi9XNi1FUaNcCRmcMQLeNOw"
+                loadingElement={<div style={{height: `100%`}}/>}
+                containerElement={<div style={{height: `100%`}}/>}
+                mapElement={<div style={{height: `100%`}}/>}
+            />
+        )
     }
 }
 
-export default GoogleApiWrapper({
-    apiKey: 'AIzaSyCiqnqPDGq0oi9XNi1FUaNcCRmcMQLeNOw'
-})(MapContainer);
+export default (MapContainer);
