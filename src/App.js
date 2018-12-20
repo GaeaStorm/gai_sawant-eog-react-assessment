@@ -9,7 +9,7 @@ import Header from "./components/Header";
 import Wrapper from "./components/Wrapper";
 import DroneMap from "./components/DroneMap";
 import DataDisplay from "./components/DataDisplay";
-// import TempFunc from "./components/TempFunc";
+import TempFunc from "./components/TempFunc";
 
 const store = createStore();
 const theme = createMuiTheme({
@@ -37,7 +37,7 @@ const App = props => (
                 <Header/>
                 <DataDisplay/>
                 <DroneMap/>
-                {/*<TempFunc/>*/}
+                <TempFunc/>
                 <ToastContainer/>
             </Wrapper>
         </Provider>

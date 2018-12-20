@@ -1,6 +1,5 @@
 import * as actions from "../actions";
 
-console.log("Drone Reducer");
 
 const initialState = {
     loading: false,
@@ -13,23 +12,18 @@ const initialState = {
 };
 
 const startLoading = (state, action) => {
-    console.log("Drone loading");
     return {...state, loading: true};
 };
 
 const droneDataReceived = (state, action) => {
-    console.log("Drone Data Received");
-    console.log(action);
     const {data} = action;
     if (!data) return state;
     const weather = data["data"][0];
     const {metric, latitude, longitude} = weather;
-    const map = [];
-    for (const point in map) {
-        map.concat({name: point.timestamp, value: point.metric});
-    }
-    // const map = data.forEach((point) => {return({name : point.timestamp, value : point.metric})});
-    console.log("metric, latitude, longitude: " + metric + " " + latitude + " " + longitude);
+    const map = data["data"].map((point) => {
+        const date = Date(point.timestamp);
+        return ({name: date.slice(date.indexOf(" ") ,date.lastIndexOf(":")), value: point.metric});
+    });
     return {
         ...state,
         loading: false,

@@ -1,57 +1,36 @@
-import React, {Component} from "react";
-import {connect} from "react-redux";
-import * as actions from "../store/actions";
-import {Marker, InfoWindow} from "react-google-maps";
-import {LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Line} from "recharts";
+import React from "react";
+import Card from "@material-ui/core/Card";
+import CardHeaderRaw from "@material-ui/core/CardHeader";
+import CardContent from "@material-ui/core/CardContent";
+import {withStyles} from "@material-ui/core/styles";
+import Temperature from "./Temperature";
 
-class TempFunc extends Component {
-    constructor(props) {
-        super(props);
+const cardStyles = theme => ({
+    root: {
+        background: theme.palette.primary.main
+    },
+    title: {
+        color: "white"
     }
+});
+const CardHeader = withStyles(cardStyles)(CardHeaderRaw);
 
-    componentDidMount() {
-        this.props.onLoad();
-        this.interval = setInterval(() => this.setState(this.props.onLoad()), 4000);
+const styles = {
+    card: {
+        margin: "2% 25%"
     }
-
-    render() {
-        console.log("TempFunc");
-        const {
-            data
-        } = this.props;
-        console.log()
-        return (
-            <LineChart width={730} height={250} data={data}
-                       margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="pv" stroke="#8884d8" />
-                <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-            </LineChart>
-        );
-    }
-}
-
-const mapState = (state, ownProps) => {
-    const {
-        data
-    } = state.drone;
-    return {
-        data
-    };
 };
 
-const mapDispatch = dispatch => ({
-    onLoad: () =>
-        dispatch({
-            type: actions.FETCH_DRONE
-        })
-});
+const DataDisplay = props => {
+    const {classes} = props;
+    return (
+        <Card className={classes.card}>
+            <CardHeader title="Temperature vs Time Chart"/>
+            <CardContent style={{width: "100%", height: "100%"}}>
+                <Temperature/>
+            </CardContent>
+        </Card>
+    );
+};
 
-export default connect(
-    mapState,
-    mapDispatch
-)(TempFunc);
+export default withStyles(styles)(DataDisplay);
