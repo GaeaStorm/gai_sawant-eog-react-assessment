@@ -9,7 +9,6 @@ import Header from "./components/Header";
 import Wrapper from "./components/Wrapper";
 import NowWhat from "./components/DroneMap";
 import TemperatureWave from "./components/DataDisplay";
-import Grid from '@material-ui/core/Grid';
 
 console.log("App");
 
@@ -30,12 +29,6 @@ const theme = createMuiTheme({
         }
     }
 });
-const styles = theme => ({
-    wrapper: {
-        background: theme.palette.background.main,
-        height: "175vh"
-    }
-});
 
 const App = props => (
     <MuiThemeProvider theme={theme}>
@@ -43,8 +36,8 @@ const App = props => (
         <Provider store={store}>
             <Wrapper>
                 <Header/>
-                    <TemperatureWave/>
-                    <NowWhat/>
+                <TemperatureWave/>
+                <NowWhat/>
                 <ToastContainer/>
             </Wrapper>
         </Provider>

@@ -1,12 +1,9 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import * as actions from "../store/actions";
-import {Marker, InfoWindow} from "react-google-maps";
+import {Marker} from "react-google-maps";
 
 class Drone extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     componentDidMount() {
         this.props.onLoad();
@@ -14,9 +11,7 @@ class Drone extends Component {
     }
 
     render() {
-        console.log("Drone");
         const {
-            metric,
             latitude,
             longitude
         } = this.props;
@@ -29,12 +24,10 @@ class Drone extends Component {
 
 const mapState = (state, ownProps) => {
     const {
-        metric,
         latitude,
         longitude
     } = state.drone;
     return {
-        metric,
         latitude,
         longitude
     };

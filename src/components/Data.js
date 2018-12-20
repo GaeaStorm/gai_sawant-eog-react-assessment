@@ -1,12 +1,8 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import * as actions from "../store/actions";
-import {Marker, InfoWindow} from "react-google-maps";
 
 class Data extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     componentDidMount() {
         this.props.onLoad();

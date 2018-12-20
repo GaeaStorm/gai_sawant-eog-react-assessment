@@ -3,8 +3,6 @@ import Card from "@material-ui/core/Card";
 import CardHeaderRaw from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import {withStyles} from "@material-ui/core/styles";
-import {MapContainer} from "./MapContainer";
-import Drone from "./Drone";
 import Temperature from "./Data";
 
 const cardStyles = theme => ({
@@ -27,7 +25,7 @@ const DataDisplay = props => {
     const {classes} = props;
     return (
         <Card className={classes.card}>
-            <CardHeader title="Parameters" />
+            <CardHeader title="Parameters"/>
             <CardContent style={{width: "100%", height: "100%"}}>
                 <Temperature/>
             </CardContent>

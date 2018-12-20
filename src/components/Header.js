@@ -2,11 +2,7 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import { withStyles } from "@material-ui/core/styles";
-// import Weather from "./Weather";
-// import Drone from "./Drone";
-
-import Grid from '@material-ui/core/Grid';
+import {withStyles} from "@material-ui/core/styles";
 
 console.log("Header");
 
@@ -17,7 +13,7 @@ const styles = {
 };
 
 const Header = props => {
-    const { classes } = props;
+    const {classes} = props;
 
     const name = "gai's";
     return (

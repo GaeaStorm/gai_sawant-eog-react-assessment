@@ -4,7 +4,6 @@ import CardHeaderRaw from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import {withStyles} from "@material-ui/core/styles";
 import {MapContainer} from "./MapContainer";
-import Drone from "./Drone";
 
 const cardStyles = theme => ({
     root: {
