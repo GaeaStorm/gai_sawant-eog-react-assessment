@@ -18,20 +18,20 @@ const CardHeader = withStyles(cardStyles)(CardHeaderRaw);
 
 const styles = {
     card: {
-        margin: "5% 25%"
+        margin: "2% 25%"
     }
 };
 
-const NowWhat = props => {
+const DroneMap = props => {
     const {classes} = props;
     return (
         <Card className={classes.card}>
-            <CardHeader title="OK, gai, you're all setup. Now What?"/>
-            <CardContent style={{width: "600px", height: "400px"}}>
+            <CardHeader title="Drone Map"/>
+            <CardContent style={{width: "400px%", height: "400px"}}>
                 <MapContainer/>
             </CardContent>
         </Card>
     );
 };
 
-export default withStyles(styles)(NowWhat);
+export default withStyles(styles)(DroneMap);

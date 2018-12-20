@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Drone from "./Drone";
 import {GoogleMap, withGoogleMap, withScriptjs} from "react-google-maps";
-import Temperature from "./Temperature";
+import Temperature from "./Data";
 
 const MapReturn = withScriptjs(withGoogleMap((props) =>
     <GoogleMap
