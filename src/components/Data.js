@@ -10,7 +10,6 @@ class Data extends Component {
     }
 
     render() {
-        console.log("Drone");
         const {
             metric,
             latitude,
@@ -19,6 +18,7 @@ class Data extends Component {
         return (
             <div>
                 <table>
+                    <tbody>
                     <tr>
                         <td>
                             Temperature in F
@@ -48,6 +48,7 @@ class Data extends Component {
                             {longitude}
                         </td>
                     </tr>
+                    </tbody>
                 </table>
             </div>
         );

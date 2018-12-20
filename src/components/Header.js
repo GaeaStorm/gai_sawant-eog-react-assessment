@@ -15,14 +15,13 @@ const styles = {
 const Header = props => {
     const {classes} = props;
 
-    const name = "gai's";
+    const name = "Gai's";
     return (
         <AppBar position="static">
             <Toolbar>
                 <Typography variant="h6" color="inherit" className={classes.grow}>
                     {name} EOG React Visualization Assessment
                 </Typography>
-                {/*<Weather />*/}
             </Toolbar>
         </AppBar>
     );

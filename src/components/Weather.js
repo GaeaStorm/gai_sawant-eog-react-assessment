@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, {Component} from "react";
+import {connect} from "react-redux";
 import * as actions from "../store/actions";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import ChipRaw from "@material-ui/core/Chip";
-import { withStyles } from "@material-ui/core/styles";
+import {withStyles} from "@material-ui/core/styles";
 
 
 console.log("Weather");
@@ -22,6 +22,7 @@ class Weather extends Component {
     componentDidMount() {
         this.props.onLoad();
     }
+
     render() {
         const {
             loading,
@@ -29,7 +30,7 @@ class Weather extends Component {
             weather_state_name,
             temperatureinFahrenheit
         } = this.props;
-        if (loading) return <LinearProgress />;
+        if (loading) return <LinearProgress/>;
         return (
             <Chip
                 label={`Weather in ${name}: ${weather_state_name} and ${temperatureinFahrenheit}°`}

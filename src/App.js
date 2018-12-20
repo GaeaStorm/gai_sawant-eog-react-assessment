@@ -7,10 +7,9 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "./components/Header";
 import Wrapper from "./components/Wrapper";
-import NowWhat from "./components/DroneMap";
-import TemperatureWave from "./components/DataDisplay";
-
-console.log("App");
+import DroneMap from "./components/DroneMap";
+import DataDisplay from "./components/DataDisplay";
+// import TempFunc from "./components/TempFunc";
 
 const store = createStore();
 const theme = createMuiTheme({
@@ -36,8 +35,9 @@ const App = props => (
         <Provider store={store}>
             <Wrapper>
                 <Header/>
-                <TemperatureWave/>
-                <NowWhat/>
+                <DataDisplay/>
+                <DroneMap/>
+                {/*<TempFunc/>*/}
                 <ToastContainer/>
             </Wrapper>
         </Provider>

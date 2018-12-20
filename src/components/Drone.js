@@ -15,7 +15,6 @@ class Drone extends Component {
             latitude,
             longitude
         } = this.props;
-        console.log()
         return (
             <Marker position={{lat: latitude, lng: longitude}}/>
         );

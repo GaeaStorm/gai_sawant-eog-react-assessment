@@ -1,6 +1,5 @@
 import * as actions from "../actions";
 
-console.log("Weather reducer");
 
 const initialState = {
     loading: false,
@@ -16,22 +15,19 @@ const initialState = {
 const toF = c => (c * 9) / 5 + 32;
 
 const startLoading = (state, action) => {
-    console.log("Weather loading");
-    return { ...state, loading: true };
+    return {...state, loading: true};
 };
 
 const weatherIDReceived = (state, action) => {
-    console.log("Weather id");
-    return { ...state, weatherId: action.id };
+    return {...state, weatherId: action.id};
 };
 
 const weatherDataRecevied = (state, action) => {
-    console.log("Weather data");
-    const { data } = action;
+    const {data} = action;
     if (!data["consolidated_weather"]) return state;
     const weather = data.consolidated_weather[0];
-    const { weather_state_name, the_temp } = weather;
-    const { latt_long, title: name } = data;
+    const {weather_state_name, the_temp} = weather;
+    const {latt_long, title: name} = data;
     const [latitude, longitude] = latt_long.split(",");
 
     return {

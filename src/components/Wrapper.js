@@ -1,5 +1,5 @@
 import React from "react";
-import { withStyles } from "@material-ui/core/styles";
+import {withStyles} from "@material-ui/core/styles";
 
 console.log("Wrapper");
 
@@ -11,8 +11,8 @@ const styles = theme => ({
 });
 
 const Wrapper = props => {
-    const { classes } = props;
-    return <div className={classes.wrapper} >{props.children}</div>;
+    const {classes} = props;
+    return <div className={classes.wrapper}>{props.children}</div>;
 };
 
 export default withStyles(styles)(Wrapper);

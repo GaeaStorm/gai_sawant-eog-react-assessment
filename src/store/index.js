@@ -1,11 +1,10 @@
-import { createStore, applyMiddleware, combineReducers } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
+import {applyMiddleware, combineReducers, createStore} from "redux";
+import {composeWithDevTools} from "redux-devtools-extension";
 import createSagaMiddleware from "redux-saga";
 import sagas from "./sagas";
 import weatherReducer from "./reducers/Weather";
 import droneReducer from "./reducers/Drone";
 
-console.log("Middleware Index");
 
 export default () => {
     const rootReducer = combineReducers({

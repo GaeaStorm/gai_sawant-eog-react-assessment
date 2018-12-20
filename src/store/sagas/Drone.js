@@ -1,4 +1,4 @@
-import { takeEvery, call, put, cancel, all } from "redux-saga/effects";
+import {all, call, cancel, put, takeEvery} from "redux-saga/effects";
 import API from "../api";
 import * as actions from "../actions";
 
@@ -19,11 +19,9 @@ import * as actions from "../actions";
 
 function* watchDroneReceived(action) {
 
-    console.log("Drone Saga");
 
     const {error, data} = yield call(API.drone);
     if (error) {
-        console.log("Not here!");
         console.log({error});
         yield put({type: actions.API_ERROR, code: error.code});
         yield cancel();
@@ -31,17 +29,14 @@ function* watchDroneReceived(action) {
     }
     const drone = data["data"][0] ? data["data"][0].metric : false;
     if (!drone) {
-        console.log("Not here!");
-        yield put({ type: actions.API_ERROR});
+        yield put({type: actions.API_ERROR});
         yield cancel();
         return;
     }
-    yield put({ type: actions.DRONE_DATA_RECEIVED, data});
+    yield put({type: actions.DRONE_DATA_RECEIVED, data});
 }
 
 function* watchDroneLoad() {
-
-    console.log("Sagas export");
 
     yield all([
         takeEvery(actions.FETCH_DRONE, watchDroneReceived)
